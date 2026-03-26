@@ -6,11 +6,261 @@
   <title>44 Welds LLC | Houston Mobile Welding</title>
   <meta name="description" content="44 Welds LLC — Houston area mobile welding for fences, gates, and trailers. Weekend service. Call or text photos for fast quotes." />
 
-  <!-- Forces all /paths to resolve from the domain root -->
-  <base href="/" />
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --card:#121926;
+      --card2:#0f1622;
+      --text:#e8eef7;
+      --muted:#b7c3d6;
+      --line:rgba(255,255,255,.12);
+      --accent:#ffd24a;
+      --accent2:#ffb703;
+    }
 
-  <!-- Root-absolute CSS path -->
-  <link rel="stylesheet" href="/styles.css" />
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, rgba(255,210,74,.18), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(255,183,3,.12), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+
+    a{color:inherit}
+    .container{width:min(1100px, 92vw); margin:0 auto;}
+
+    .header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,20,.75);
+      border-bottom:1px solid var(--line);
+    }
+    .header-inner{
+      display:flex; gap:16px; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:42px;height:42px; display:grid; place-items:center;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,210,74,.2), rgba(255,210,74,.05));
+      border-radius:12px;
+      font-size:20px;
+    }
+    .site-title{margin:0; font-size:18px; letter-spacing:.2px}
+    .tagline{margin:2px 0 0; color:var(--muted); font-size:13px}
+
+    .nav{display:flex; gap:14px; flex-wrap:wrap}
+    .nav a{
+      text-decoration:none; color:var(--muted);
+      font-size:14px; padding:8px 10px; border-radius:10px;
+    }
+    .nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+
+    .hero{padding:42px 0 18px;}
+    .hero-inner{
+      display:grid;
+      grid-template-columns: 1.3fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+    .hero h2{margin:0 0 10px; font-size:34px; line-height:1.15}
+    .hero p{margin:0 0 16px; color:var(--muted)}
+    .hero-card{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(18,25,38,.85), rgba(15,22,34,.85));
+      border-radius:16px;
+      padding:16px;
+    }
+    .hero-card h3{margin:0 0 8px; font-size:16px}
+    .card-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0;}
+    .mini{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px;
+      background:rgba(255,255,255,.04);
+    }
+    .mini-title{color:var(--muted); font-size:12px}
+    .mini-value{font-size:13px; margin-top:4px}
+
+    .badges{
+      list-style:none; padding:0; margin:14px 0 0;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .badges li{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--line);
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+
+    .section{padding:38px 0}
+    .section.alt{
+      background:rgba(255,255,255,.03);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line)
+    }
+    .section-head{margin-bottom:16px}
+    .section-head h2{margin:0 0 6px; font-size:24px}
+    .section-head p{margin:0; color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .tile{
+      border:1px solid var(--line);
+      background:rgba(18,25,38,.65);
+      border-radius:16px;
+      padding:14px;
+    }
+    .tile h3{margin:0 0 6px; font-size:16px}
+    .tile p{margin:0; color:var(--muted); font-size:14px}
+
+    .callout{
+      margin-top:16px;
+      border:1px dashed rgba(255,210,74,.35);
+      background:rgba(255,210,74,.08);
+      padding:12px 14px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .gallery{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .shot{
+      margin:0;
+      border:1px solid var(--line);
+      background:rgba(18,25,38,.6);
+      border-radius:16px;
+      overflow:hidden;
+    }
+    .shot img{
+      width:100%;
+      height:150px;
+      object-fit:cover;
+      display:block;
+      border-bottom:1px solid var(--line);
+    }
+    .shot figcaption{padding:10px 12px; color:var(--muted); font-size:13px}
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap:14px;
+      align-items:start;
+    }
+    .contact-card{
+      border:1px solid var(--line);
+      background:rgba(18,25,38,.65);
+      border-radius:16px;
+      padding:14px;
+    }
+    .contact-card h3{margin:0 0 10px}
+    .contact-row{
+      display:grid;
+      grid-template-columns: 110px 1fr;
+      gap:10px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .contact-row:last-of-type{border-bottom:none}
+    .label{color:var(--muted); font-size:13px}
+    .value a{
+      color:var(--text);
+      text-decoration:none;
+      border-bottom:1px dotted rgba(255,255,255,.25)
+    }
+    .value a:hover{border-bottom-color:rgba(255,210,74,.8)}
+
+    .form{
+      border:1px solid var(--line);
+      background:rgba(18,25,38,.65);
+      border-radius:16px;
+      padding:14px;
+    }
+    .form h3{margin:0 0 10px}
+    label{display:block; margin:10px 0}
+    input, textarea{
+      width:100%;
+      margin-top:6px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(11,15,20,.7);
+      color:var(--text);
+      outline:none;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(255,210,74,.55);
+      box-shadow: 0 0 0 3px rgba(255,210,74,.12);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      border-radius:12px;
+      padding:10px 14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      text-decoration:none;
+      color:var(--text);
+      font-weight:600;
+    }
+    .btn:hover{background:rgba(255,255,255,.10)}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(255,210,74,.95), rgba(255,183,3,.92));
+      color:#1a1a1a;
+      border-color: rgba(255,210,74,.65);
+    }
+    .btn.primary:hover{filter:brightness(1.02)}
+    .btn.ghost{background:transparent;}
+    .btn.small{padding:8px 12px; border-radius:12px; font-size:14px}
+
+    .cta-row{display:flex; flex-wrap:wrap; gap:10px}
+
+    .footer{
+      border-top:1px solid var(--line);
+      padding:20px 0 88px;
+    }
+    .footer-inner{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .footer .small{color:var(--muted); font-size:13px}
+    .note{color:var(--muted); font-size:13px}
+    .fineprint{color:var(--muted); font-size:12px; margin-top:10px}
+
+    .sticky-actions{
+      position:fixed;
+      left:0; right:0; bottom:0;
+      padding:10px;
+      display:none;
+      gap:10px;
+      background: rgba(11,15,20,.82);
+      border-top:1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+    .sticky-actions .btn{flex:1}
+
+    @media (max-width: 860px){
+      .hero-inner{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .sticky-actions{display:flex}
+      .nav{display:none}
+      .hero h2{font-size:28px}
+    }
+    @media (max-width: 520px){
+      .grid,.gallery{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -82,35 +332,12 @@
         </div>
 
         <div class="grid">
-          <article class="tile">
-            <h3>Fence Repairs</h3>
-            <p>Broken posts, rails, panels, and damaged welds. Reinforcement and re-welds.</p>
-          </article>
-
-          <article class="tile">
-            <h3>Gate Repairs</h3>
-            <p>Hinges, latches, sagging gates, misalignment, rollers, and structural fixes.</p>
-          </article>
-
-          <article class="tile">
-            <h3>Trailer Welding</h3>
-            <p>Frames, tongues, ramps, axle brackets, safety chains, and cracked weld repair.</p>
-          </article>
-
-          <article class="tile">
-            <h3>Fabrication & Mods</h3>
-            <p>Custom brackets, tabs, mounts, gussets, reinforcement plates, and small builds.</p>
-          </article>
-
-          <article class="tile">
-            <h3>Rust & Reinforcement</h3>
-            <p>Cut-out and patch, plate reinforcement, and preventative strengthening.</p>
-          </article>
-
-          <article class="tile">
-            <h3>On-Site Diagnostics</h3>
-            <p>We assess damage, share options, and quote before work begins.</p>
-          </article>
+          <article class="tile"><h3>Fence Repairs</h3><p>Broken posts, rails, panels, and damaged welds. Reinforcement and re-welds.</p></article>
+          <article class="tile"><h3>Gate Repairs</h3><p>Hinges, latches, sagging gates, misalignment, rollers, and structural fixes.</p></article>
+          <article class="tile"><h3>Trailer Welding</h3><p>Frames, tongues, ramps, axle brackets, safety chains, and cracked weld repair.</p></article>
+          <article class="tile"><h3>Fabrication & Mods</h3><p>Custom brackets, tabs, mounts, gussets, reinforcement plates, and small builds.</p></article>
+          <article class="tile"><h3>Rust & Reinforcement</h3><p>Cut-out and patch, plate reinforcement, and preventative strengthening.</p></article>
+          <article class="tile"><h3>On-Site Diagnostics</h3><p>We assess damage, share options, and quote before work begins.</p></article>
         </div>
 
         <div class="callout">
@@ -128,40 +355,13 @@
         </div>
 
         <div class="gallery">
-          <figure class="shot">
-            <img src="/images/walk-gate.jpg" alt="Decorative iron walk gate at brick home" />
-            <figcaption>Custom iron walk gate — clean fit and finish</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <img src="/images/utility-fence.jpg" alt="Steel fence and gate around equipment enclosure" />
-            <figcaption>Steel fence and access gate for equipment enclosure</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <img src="/images/handrail.jpg" alt="Steel handrail installed at commercial entry" />
-            <figcaption>Steel handrail install — anchored and leveled</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <img src="/images/flatbed-trailer.jpg" alt="Multi-axle flatbed trailer deck repair" />
-            <figcaption>Trailer deck repair and reinforcement</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <img src="/images/trailer-tongue.jpg" alt="Trailer tongue repair with coupler and jack mount" />
-            <figcaption>Trailer tongue rebuild — strengthened and re-welded</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <img src="/images/custom-fab-box.jpg" alt="Custom steel fabrication with hinged lid and latches" />
-            <figcaption>Custom steel fabrication — hinged lid and latches</figcaption>
-          </figure>
-
-          <figure class="shot">
-            <img src="/images/driveway-gate.jpg" alt="Custom driveway gate with arched top and emblem" />
-            <figcaption>Custom driveway gate — arched top with emblem detail</figcaption>
-          </figure>
+          <figure class="shot"><img src="images/walk-gate.jpg" alt="Decorative iron walk gate at brick home" /><figcaption>Custom iron walk gate — clean fit and finish</figcaption></figure>
+          <figure class="shot"><img src="images/utility-fence.jpg" alt="Steel fence and gate around equipment enclosure" /><figcaption>Steel fence and access gate for equipment enclosure</figcaption></figure>
+          <figure class="shot"><img src="images/handrail.jpg" alt="Steel handrail installed at commercial entry" /><figcaption>Steel handrail install — anchored and leveled</figcaption></figure>
+          <figure class="shot"><img src="images/flatbed-trailer.jpg" alt="Multi-axle flatbed trailer deck repair" /><figcaption>Trailer deck repair and reinforcement</figcaption></figure>
+          <figure class="shot"><img src="images/trailer-tongue.jpg" alt="Trailer tongue repair with coupler and jack mount" /><figcaption>Trailer tongue rebuild — strengthened and re-welded</figcaption></figure>
+          <figure class="shot"><img src="images/custom-fab-box.jpg" alt="Custom steel fabrication with hinged lid and latches" /><figcaption>Custom steel fabrication — hinged lid and latches</figcaption></figure>
+          <figure class="shot"><img src="images/driveway-gate.jpg" alt="Custom driveway gate with arched top and emblem" /><figcaption>Custom driveway gate — arched top with emblem detail</figcaption></figure>
         </div>
 
         <p class="note">Note: rotate the driveway gate photo upright before saving as <code>driveway-gate.jpg</code>.</p>
@@ -179,25 +379,10 @@
           <div class="contact-card">
             <h3>Get in touch</h3>
 
-            <div class="contact-row">
-              <div class="label">Phone</div>
-              <div class="value"><a href="tel:+12816596123">(281) 659-6123</a></div>
-            </div>
-
-            <div class="contact-row">
-              <div class="label">Text</div>
-              <div class="value"><a href="sms:+12816596123">Text us</a></div>
-            </div>
-
-            <div class="contact-row">
-              <div class="label">Email</div>
-              <div class="value"><a href="mailto:Lucasmrrs392@gmail.com">Lucasmrrs392@gmail.com</a></div>
-            </div>
-
-            <div class="contact-row">
-              <div class="label">Service Area</div>
-              <div class="value">Houston area (Houston + nearby suburbs)</div>
-            </div>
+            <div class="contact-row"><div class="label">Phone</div><div class="value"><a href="tel:+12816596123">(281) 659-6123</a></div></div>
+            <div class="contact-row"><div class="label">Text</div><div class="value"><a href="sms:+12816596123">Text us</a></div></div>
+            <div class="contact-row"><div class="label">Email</div><div class="value"><a href="mailto:Lucasmrrs392@gmail.com">Lucasmrrs392@gmail.com</a></div></div>
+            <div class="contact-row"><div class="label">Service Area</div><div class="value">Houston area (Houston + nearby suburbs)</div></div>
 
             <div class="cta-row">
               <a class="btn primary" href="tel:+12816596123">Call</a>
@@ -210,25 +395,19 @@
           <form class="form" action="#" method="post">
             <h3>Quick quote request</h3>
 
-            <label>
-              Name
+            <label>Name
               <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
             </label>
 
-            <label>
-              Phone
+            <label>Phone
               <input type="tel" name="phone" autocomplete="tel" placeholder="(281) 659-6123" required />
             </label>
 
-            <label>
-              What do you need welded?
+            <label>What do you need welded?
               <textarea name="message" rows="5" placeholder="Fence/gate/trailer details, timeline, location..." required></textarea>
             </label>
 
-            <button class="btn primary" type="submit" disabled title="This demo form isn't wired up yet.">
-              Submit (demo)
-            </button>
-
+            <button class="btn primary" type="submit" disabled title="This demo form isn't wired up yet.">Submit (demo)</button>
             <p class="note">Want a working form that emails you? Tell me and I’ll wire it up (easy).</p>
           </form>
         </div>
