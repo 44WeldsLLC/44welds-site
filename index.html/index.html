@@ -392,24 +392,33 @@
             <p class="fineprint">Include: location, what needs welded, and 1–2 photos.</p>
           </div>
 
-          <form class="form" action="https://formspree.io/f/xzdkzvew" method="POST">
-            <h3>Quick quote request</h3>
+          <form class="form" action="https://formspree.io/f/xzdkzvew" method="POST" enctype="multipart/form-data">
+  <h3>Quick quote request</h3>
 
-            <label>Name
-              <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
-            </label>
+  <label>
+    Name
+    <input type="text" name="name" autocomplete="name" placeholder="Your name" required />
+  </label>
 
-            <label>Phone
-              <input type="tel" name="phone" autocomplete="tel" placeholder="(281) 659-6123" required />
-            </label>
+  <label>
+    Phone
+    <input type="tel" name="phone" autocomplete="tel" placeholder="(281) 659-6123" required />
+  </label>
 
-            <label>What do you need welded?
-              <textarea name="message" rows="5" placeholder="Fence/gate/trailer details, timeline, location..." required></textarea>
-            </label>
+  <label>
+    What do you need welded?
+    <textarea name="message" rows="5" placeholder="Fence/gate/trailer details, timeline, location..." required></textarea>
+  </label>
 
-            <button class="btn primary" type="submit">Submit</button>
-            <p class="note">We'll respond as soon as we can. For the fastest quote, please text us a photo.</p>
-          </form>
+  <label>
+    Upload photos (optional)
+    <input type="file" name="attachments" accept="image/*" multiple />
+  </label>
+
+  <button class="btn primary" type="submit">Submit</button>
+
+  <p class="note">For the fastest quote, you can also text photos to (281) 659-6123.</p>
+</form>
         </div>
       </div>
     </section>
